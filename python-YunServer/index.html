@@ -1,0 +1,65 @@
+<html>
+<head>
+	
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+</head>
+<div id="button">
+
+</div>
+<div id="sliderContainer">
+<input id="slider1" data-channel="1" orient="vertical" type="range" min="-100" max="100" step="10" /> 
+<input id="slider2" data-channel="2" orient="vertical" type="range" min="-100" max="100" step="10" />
+</div>
+<style>
+div{
+  background-color: red;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+      height:20%;
+}
+#slider1{
+	left: 20%;
+}
+#slider2{
+	right: 20%;
+}
+input{
+	 -webkit-appearance: slider-vertical;
+		position: fixed;
+width: 10%;
+top:10%;
+height: 80%;
+}
+
+
+
+
+
+
+</style>
+<script type="text/javascript">
+ws = new WebSocket ("ws://192.168.1.235:8887/websocket")
+ console.log(ws);
+ document.getElementById("slider1").oninput =  function (){
+ 	var speed = Number(document.getElementById("slider1").value) 
+ 	console.log(speed)
+ 	sendSpeedCMD(1,speed);
+};
+
+document.getElementById("slider1").onchange =  function (){
+ 	document.getElementById("slider1").value = 0;
+ 	sendSpeedCMD(1,0);
+};
+
+function sendSpeedCMD(channel,speed){
+	var speedRaw = speed + 127;
+	console.log(speedRaw)
+ 	ws.send("1," + speedRaw);
+}
+function sendStopCMD(){
+	ws.send(0);
+}
+</script>
+ 	  
+</html>
