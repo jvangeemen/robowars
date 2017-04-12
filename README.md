@@ -23,6 +23,6 @@ Choose how many channels you'll need. (a normal bot usually takes 3-4 channels).
 
 Connect the hardware
 
-[[https://raw.githubusercontent.com/lemio/robowars/master/breadboardview.png|alt=breadboardLayout]]
+[[https://github.com/lemio/robowars/blob/master/breadboardview.png|alt=breadboardLayout]]
 
 ## Step 6
