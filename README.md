@@ -39,9 +39,9 @@ Connect the hardware
 If you want to use more than two channels you'll have to change the code a bit. First of all you have to change the line
 
 ```cpp
-const int channels          = 2;
+#define CHANNELS 2
 ```
-To the number of channels that you want to control
+To the number of channels that you want to control, it automatically enables the interrupts on the pins defined in inputPins[]
 
 To assign interrupt pins to those channels you'll have to change inputPins[] make sure that you use INTERRUPT pins (or PIN CHANGE INTERRUPT PINS). Normal interrupt pins are faster, so first use 2 and 3 and afterwards use the PCI pins (8, 9, 10, 11).
 
@@ -66,12 +66,3 @@ const int inputPins[]       = {2  , 3,  8,  9};  //MUST BE INTERUPT 2, 3, 7 or P
 ```
 
 You're also able to use more than 4 channels, but it might become difficult using DC motors (because of the amount of pins). You can force the motor driver to only turn in one direction, or use a non-pwm pin to control the speed (FULL SPEED, NO SPEED)
-
-You also need to make sure to comment or uncomment non-exisiting interrupts further in the code:
-
-```cpp
-enableInterrupt(inputPins[0],functionOne, CHANGE);
-enableInterrupt(inputPins[1],functionTwo, CHANGE);
-enableInterrupt(inputPins[2],functionTree, CHANGE);
-enableInterrupt(inputPins[3],functionFour, CHANGE);
-```

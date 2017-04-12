@@ -22,14 +22,7 @@ For a <5 channel reciever using the Arduino Yun
 #include <EnableInterrupt.h>
 //DOWNLOAD FROM https://github.com/GreyGnome/EnableInterrupt
 
-/*
-Refer those functions to the main interrupt function
-*/
-void functionOne(){quicfunc(0);}
-void functionTwo(){quicfunc(1);}
-void functionTree(){quicfunc(2);}
-void functionFour(){quicfunc(3);}
-void functionFive(){quicfunc(4);}
+
 
 /*
 Define the pins
@@ -49,8 +42,36 @@ const int inputPins[]       = {2  , 3,  -1,  -1};  //MUST BE INTERUPT 2, 3, 7 or
 volatile unsigned long testEnd[] =     {0  , 0,0,0};
 volatile unsigned long testStart[] =   {0  , 0,0,0};
 int value[]              =    {0  , 0,0,0};
-const int channels          = 2;
+#define CHANNELS 2
 
+/*
+Refer those functions to the main interrupt function
+*/
+#if CHANNELS > 0
+void functionOne() {
+  quicfunc(0);
+}
+#endif
+#if CHANNELS > 1
+void functionTwo() {
+  quicfunc(1);
+}
+#endif
+#if CHANNELS > 2
+void functionTree() {
+  quicfunc(2);
+}
+#endif
+#if CHANNELS > 3
+void functionFour() {
+  quicfunc(3);
+}
+#endif
+#if CHANNELS > 4
+void functionFive() {
+  quicfunc(4);
+}
+#endif
 
 /*
 The min and maximum value that the remote sends
@@ -67,18 +88,28 @@ void setup() {
       pinMode(inputPins[i],INPUT);
 
     }
-    //uncomment/comment the channels that are not being used. (Arduino can't attach an interrupt to a -1 pin)
-    enableInterrupt(inputPins[0],functionOne, CHANGE);
-    enableInterrupt(inputPins[1],functionTwo, CHANGE);
-    //enableInterrupt(inputPins[2],functionTree, CHANGE);
-    //enableInterrupt(inputPins[3],functionFour, CHANGE);
+    #if CHANNELS > 0
+  enableInterrupt(inputPins[0], functionOne, CHANGE);
+#endif
+#if CHANNELS > 1
+  enableInterrupt(inputPins[1], functionTwo, CHANGE);
+#endif
+#if CHANNELS > 2
+  enableInterrupt(inputPins[2], functionTree, CHANGE);
+#endif
+#if CHANNELS > 3
+  enableInterrupt(inputPins[3], functionFour, CHANGE);
+#endif
+#if CHANNELS > 4
+  enableInterrupt(inputPins[4], functionFour, CHANGE);
+#endif
 
   Serial.begin(115200);
   Serial.println("---------------------------------------");
 }
 
 void loop() {
-  for(int i=0;i<channels;i++){
+  for(int i=0;i<CHANNELS;i++){
   if (testStart[i]<testEnd[i]){
     int ra = testEnd[i]-testStart[i];
     int a = map(ra,map_min,map_max,-255,255);
