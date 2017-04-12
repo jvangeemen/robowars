@@ -7,7 +7,7 @@
         |   M1    |    M2   |   M1    |    M2   |
 
                           L298N
-                          
+
 ENABLE  |   M1    |   M2    |   M2    |   M1    |   ENABLE
 10      |   8     |   9     |   4     |   5     |   6
 
@@ -40,7 +40,7 @@ channel 1 and 2 are being used for the steering (normally) and the other channel
 const int motorAPins[]      = {8  , 4,-1,-1};  //Normal digital or analog pin (analog with A prefix)
 const int motorBPins[]      = {9  , 5,-1,-1};  //Normal digital or analog pin (analog with A prefix)
 const int motorEnablePins[] = {10 , 6,-1,-1};  //MUST BE PWM (3,5,6,9,10,11 are PWM)
-const int inputPins[]       = {2  , 3,  -1,  -1};  //MUST BE INTERUPT 2, 3, 7 or PIN CHANGE INTERRUPT 8, 9, 10, 11; keep in mind that 0 is RX and 1 is TX, 
+const int inputPins[]       = {2  , 3,  -1,  -1};  //MUST BE INTERUPT 2, 3, 7 or PIN CHANGE INTERRUPT 8, 9, 10, 11; keep in mind that 0 is RX and 1 is TX,
                                          //so don't use serial communication when useing those.
                                          //
 
@@ -65,12 +65,13 @@ void setup() {
       pinMode(motorBPins[i],OUTPUT);
       pinMode(motorEnablePins[i],OUTPUT);
       pinMode(inputPins[i],INPUT);
-      
+
     }
+    //uncomment/comment the channels that are not being used. (Arduino can't attach an interrupt to a -1 pin)
     enableInterrupt(inputPins[0],functionOne, CHANGE);
     enableInterrupt(inputPins[1],functionTwo, CHANGE);
-    enableInterrupt(inputPins[2],functionTree, CHANGE);
-    enableInterrupt(inputPins[3],functionFour, CHANGE);
+    //enableInterrupt(inputPins[2],functionTree, CHANGE);
+    //enableInterrupt(inputPins[3],functionFour, CHANGE);
 
   Serial.begin(115200);
   Serial.println("---------------------------------------");
@@ -96,7 +97,7 @@ void loop() {
   Serial.print(",");
   Serial.println(value[3]);
   delay(100);
-  
+
 }
 
 /*
@@ -129,8 +130,7 @@ void speedCommand(byte channel,int channelSpeed){
       //Disable the annoying sound (and make sure that the robot is not wasting power in stable mode)
       analogWrite(motorEnablePins[channel],0);
       }else{
-       
+
       analogWrite(motorEnablePins[channel],min(255,abs(channelSpeed) + 10));
       }
 }
-

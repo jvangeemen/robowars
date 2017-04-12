@@ -34,4 +34,44 @@ Connect the hardware
 
 <img src="https://raw.githubusercontent.com/lemio/robowars/master/breadboardview.png"></img>
 
-## Step 6
+## Step 7
+
+If you want to use more than two channels you'll have to change the code a bit. First of all you have to change the line
+
+```cpp
+const int channels          = 2;
+```
+To the number of channels that you want to control
+
+To assign interrupt pins to those channels you'll have to change inputPins[] make sure that you use INTERRUPT pins (or PIN CHANGE INTERRUPT PINS). Normal interrupt pins are faster, so first use 2 and 3 and afterwards use the PCI pins (8, 9, 10, 11).
+
+Also make sure you're not using those pins as output pins.
+
+The code is setup for controlling DC motors using the red L298N motor controllers (you can choose pins to controll those in motorAPins, motorBPins and motorEnablePins). Please make sure that you use PWM pins (3,5,6,9,10,11) for the motorEnablePins and don't use them also as interrupt pin
+
+Orgininal code
+```cpp
+const int motorAPins[]      = {8  , 4,-1,-1};  //Normal digital or analog pin (analog with A prefix)
+const int motorBPins[]      = {9  , 5,-1,-1};  //Normal digital or analog pin (analog with A prefix)
+const int motorEnablePins[] = {10 , 6,-1,-1};  //MUST BE PWM (3,5,6,9,10,11 are PWM)
+const int inputPins[]       = {2  , 3,  -1,  -1};  //MUST BE INTERUPT 2, 3, 7 or PIN CHANGE INTERRUPT 8, 9, 10, 11;
+```
+
+Example four channel setup for DC motor controllers
+```cpp
+const int motorAPins[]      = {A0  , A2,  A4, 12};  //Normal digital or analog pin (analog with A prefix)
+const int motorBPins[]      = {A1  , A3,  A5, 13};  //Normal digital or analog pin (analog with A prefix)
+const int motorEnablePins[] = {5   , 6,   10, 11};  //MUST BE PWM (3,5,6,9,10,11 are PWM)
+const int inputPins[]       = {2  , 3,  8,  9};  //MUST BE INTERUPT 2, 3, 7 or PIN CHANGE INTERRUPT 8, 9, 10, 11;
+```
+
+You're also able to use more than 4 channels, but it might become difficult using DC motors (because of the amount of pins). You can force the motor driver to only turn in one direction, or use a non-pwm pin to control the speed (FULL SPEED, NO SPEED)
+
+You also need to make sure to comment or uncomment non-exisiting interrupts further in the code:
+
+```cpp
+enableInterrupt(inputPins[0],functionOne, CHANGE);
+enableInterrupt(inputPins[1],functionTwo, CHANGE);
+enableInterrupt(inputPins[2],functionTree, CHANGE);
+enableInterrupt(inputPins[3],functionFour, CHANGE);
+```
