@@ -19,6 +19,15 @@ Choose how many channels you'll need. (a normal bot usually takes 3-4 channels).
 
 (To start (and make things move), lets just use 2 channels, you can just copy paste te code from the github). When you have this working and tested you can move to step 7
 
+## Troubelshooting
+
+If you're not sure weather the RC reciever is actually connected to the RC transmitter, you can easily check that by connecting a (continious) servo to one of the ports on the RC reciever, play around with the controller and see if it changes the direction/position of the servo.
+
+Make sure you connect the servo in the right way,
+VCC -> red
+GND -> black
+Signal -> another color (usually white)
+
 ## Step 6
 
 Connect the hardware
