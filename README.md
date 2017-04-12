@@ -12,7 +12,7 @@ https://www.arduino.cc/en/Main/Software
 When you have your Arduino software installed, click Sketch>Include Library>Manage Libraries>And search for EnableInterrupt
 
 ## Step 4
-Download (or copy paste) the code from this github into your arduino software. 
+Download (or copy paste) the code from this github into your arduino software.
 
 ## Step 5
 Choose how many channels you'll need. (a normal bot usually takes 3-4 channels). The remotes support up to 6 channels, but you'll need to solder potentiometers/switches to make them functional.
@@ -23,6 +23,6 @@ Choose how many channels you'll need. (a normal bot usually takes 3-4 channels).
 
 Connect the hardware
 
-
+[[https://raw.githubusercontent.com/lemio/robowars/master/breadboardview.png|alt=breadboardLayout]]
 
 ## Step 6
