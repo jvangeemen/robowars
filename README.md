@@ -34,7 +34,7 @@ Signal -> another color (usually white)
 
 ## Step 6
 
-Connect the hardware
+Connect the hardware (Different arduino!, so pins may be different)
 
 <img src="https://raw.githubusercontent.com/lemio/robowars/master/breadboardview.png"></img>
 
