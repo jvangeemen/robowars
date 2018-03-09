@@ -70,3 +70,37 @@ const int inputPins[]       = {2  , 3,  8,  9};  //MUST BE INTERUPT 2, 3, 7 or P
 ```
 
 You're also able to use more than 4 channels, but it might become difficult using DC motors (because of the amount of pins). You can force the motor driver to only turn in one direction, or use a non-pwm pin to control the speed (FULL SPEED, NO SPEED)
+
+
+## Links and datasheets
+
+Remote:
+FS-I4X 4CH radio Mode 2
+
+https://hobbyking.com/media/file/303007606X869309X7.pdf
+
+https://www.sparkfun.com/tutorials/348
+
+
+
+
+Motor Shield:
+L298N Dual H Bridge 
+
+https://opencircuit.nl/ProductInfo/1000189/L298N-module-informatie.pdf
+
+https://opencircuit.nl/ProductInfo/1000188/L298N.pdf
+
+http://www.instructables.com/id/Arduino-Modules-L298N-Dual-H-Bridge-Motor-Controll/
+
+
+
+
+Lipo Battery:
+Pack ZIPPY Compact 1000mAh 3S 25C Lipo
+
+
+
+
+Arduino uno:
+https://www.tinytronics.nl/shop/nl/arduino/main-boards/uno-r3-compatible-usb-b
