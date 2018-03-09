@@ -1,5 +1,5 @@
-# robowars
-The example source files for the Lucid Lustrum Makeathon where battle robots start fighting
+This tutorial was not made for the arduino uno, so the pin numbers may differ.
+
 
 ## Step 1
 Breathe and stay calm
@@ -43,11 +43,11 @@ If you want to use more than two channels you'll have to change the code a bit. 
 ```
 To the number of channels that you want to control, it automatically enables the interrupts on the pins defined in inputPins[]
 
-To assign interrupt pins to those channels you'll have to change inputPins[] make sure that you use INTERRUPT pins (or PIN CHANGE INTERRUPT PINS). Normal interrupt pins are faster, so first use 2 and 3 and afterwards use the PCI pins (8, 9, 10, 11).
+To assign interrupt pins to those channels you'll have to change inputPins[] make sure that you use INTERRUPT pins (or PIN CHANGE INTERRUPT PINS). Normal interrupt pins are faster, so first use 2 and 3 and afterwards use the PCI pins.
 
 Also make sure you're not using those pins as output pins.
 
-The code is setup for controlling DC motors using the red L298N motor controllers (you can choose pins to controll those in motorAPins, motorBPins and motorEnablePins). Please make sure that you use PWM pins (3,5,6,9,10,11) for the motorEnablePins and don't use them also as interrupt pin
+The code is setup for controlling DC motors using the red L298N motor controllers (you can choose pins to controll those in motorAPins, motorBPins and motorEnablePins). Please make sure that you use PWM pins for the motorEnablePins and don't use them also as interrupt pin
 
 Orgininal code
 ```cpp
