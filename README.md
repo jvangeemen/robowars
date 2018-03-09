@@ -1,5 +1,6 @@
 This tutorial was not made for the arduino uno, so the pin numbers may differ.
 
+<img src="https://raw.githubusercontent.com/jvangeemen/robowars/master/Comparison-pinout-Arduino-Nano-and-Arduono-Uno.png"></img>
 
 ## Step 1
 Breathe and stay calm
@@ -15,9 +16,12 @@ When you have your Arduino software installed, click Sketch>Include Library>Mana
 Download (or copy paste) the code from this github into your arduino software.
 
 ## Step 5
-Choose how many channels you'll need. (a normal bot usually takes 3-4 channels). The remotes support up to 6 channels, but you'll need to solder potentiometers/switches to make them functional.
+Choose how many channels you'll need. (a normal bot usually takes 3-4 channels). 
 
-(To start (and make things move), lets just use 2 channels, you can just copy paste te code from the github). When you have this working and tested you can move to step 7
+(The remotes support up to 6 channels, but you'll need to solder potentiometers/switches to make them functional.)
+
+To start (and make things move), lets just use 2 channels, you can just copy paste te code from the github.
+When you have this working and tested you can move to step 7
 
 ## Troubelshooting
 
