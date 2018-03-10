@@ -34,7 +34,7 @@ Signal -> another color (usually white)
 
 ## Step 6
 
-Connect the hardware (Different arduino!, so pins may be different)
+Connect the hardware (Different arduino!, so pins are different)
 
 <img src="https://raw.githubusercontent.com/lemio/robowars/master/breadboardview.png"></img>
 
@@ -86,6 +86,8 @@ https://www.sparkfun.com/tutorials/348
 
 Motor Shield:
 L298N Dual H Bridge 
+!! the 5v output has a limited current it can supply!!
+(So be carefull when connecting multiple parts to this output, this can result in exploding lipos or other parts!)
 
 https://opencircuit.nl/ProductInfo/1000189/L298N-module-informatie.pdf
 
