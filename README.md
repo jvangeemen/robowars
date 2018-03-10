@@ -28,7 +28,7 @@ When you have this working and tested you can move to step 7
 If you're not sure weather the RC reciever is actually connected to the RC transmitter, you can easily check that by connecting a (continious) servo to one of the ports on the RC reciever, play around with the controller and see if it changes the direction/position of the servo.
 
 Make sure you connect the servo in the right way,
-VCC -> red
+VCC(5v) -> red
 GND -> black
 Signal -> another color (usually white)
 
