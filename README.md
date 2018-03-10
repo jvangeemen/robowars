@@ -74,7 +74,7 @@ You're also able to use more than 4 channels, but it might become difficult usin
 
 ## Links and datasheets
 
-Remote:
+## Remote
 FS-I4X 4CH radio Mode 2
 
 https://hobbyking.com/media/file/303007606X869309X7.pdf
@@ -84,7 +84,7 @@ https://www.sparkfun.com/tutorials/348
 
 
 
-Motor Shield:
+## Motorshield
 L298N Dual H Bridge 
 !! the 5v output has a limited current it can supply!!
 (So be carefull when connecting multiple parts to this output, this can result in exploding lipos or other parts!)
@@ -98,11 +98,11 @@ http://www.instructables.com/id/Arduino-Modules-L298N-Dual-H-Bridge-Motor-Contro
 
 
 
-Lipo Battery:
+## Battery
 Pack ZIPPY Compact 1000mAh 3S 25C Lipo
 
 
 
-
+## Arduino
 Arduino uno:
 https://www.tinytronics.nl/shop/nl/arduino/main-boards/uno-r3-compatible-usb-b
